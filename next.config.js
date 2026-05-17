@@ -8,7 +8,16 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
   images: {
-    domains: ["placeholder.com"],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "placeholder.com",
+      },
+      {
+        protocol: "https",
+        hostname: "cdn.enhancv.com",
+      },
+    ],
     unoptimized: true,
   },
 }
