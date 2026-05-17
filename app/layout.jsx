@@ -14,27 +14,27 @@ export const metadata = {
   },
 };
 
+export const dynamic = "force-dynamic"
 
 export default function RootLayout({ children }) {
-  return (<ClerkProvider
-      appearance={{
-        elements: {
-          formButtonPrimary: "bg-teal-600 hover:bg-teal-700 text-white",
-          footerActionLink: "text-teal-600 hover:text-teal-700",
-        },
-      }}
-    > 
+  return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.className} antialiased`}>
-         <MainNav />
-            <ResumeProvider>
-              {children}
-            
-            </ResumeProvider>
+        <ClerkProvider
+          appearance={{
+            elements: {
+              formButtonPrimary: "bg-teal-600 hover:bg-teal-700 text-white",
+              footerActionLink: "text-teal-600 hover:text-teal-700",
+            },
+          }}
+        >
+          <MainNav />
+          <ResumeProvider>
+            {children}
+          </ResumeProvider>
           <Footer />
-       
+        </ClerkProvider>
       </body>
     </html>
-    </ClerkProvider>
   );
 }
